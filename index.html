@@ -19,7 +19,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -33,52 +33,52 @@
       <!-- Timeblocks go here -->
       <div class="row 8am">
           <p class="hour">08:00 AM</p>
-          <textarea cols="100" class="text" data-hour="8" id="8am_text"></textarea>
+          <textarea cols="100" class="" data-hour="8" id="8am_text"></textarea>
           <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row  9am">
         <p class="hour">09:00 AM</p>
-        <textarea cols="100" class="text" data-hour="9" id="9am_text"></textarea>
+        <textarea cols="100" class="" data-hour="9" id="9am_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button> 
       </div>
       <div class="row 10am">
         <p class="hour">10:00 AM</p>
-          <textarea cols="100" class="text" data-hour="10" id="10am_text"></textarea>
+          <textarea cols="100" class="" data-hour="10" id="10am_text"></textarea>
           <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row 11am">
         <p class="hour">11:00 AM</p>
-        <textarea cols="100" class="text" data-hour="11" id="11am_text"></textarea>
+        <textarea cols="100" class="" data-hour="11" id="11am_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row 12pm">
         <p class="hour">12:00 PM</p>
-        <textarea cols="100" class="text" data-hour="12" id="12pm_text"></textarea>
+        <textarea cols="100" class="" data-hour="12" id="12pm_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row  1pm">
         <p class="hour">01:00 PM</p>
-        <textarea cols="100" class="text" data-hour="13" id="1pm_text"></textarea>
+        <textarea cols="100" class="" data-hour="13" id="1pm_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row  2pm">
         <p class="hour">02:00 PM</p>
-        <textarea cols="100" class="text" data-hour="14" id="2pm_text"></textarea>
+        <textarea cols="100" class="" data-hour="14" id="2pm_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row  3pm">
         <p class="hour">03:00 PM</p>
-        <textarea cols="100" class="text" data-hour="15" id="3pm_text"></textarea>
+        <textarea cols="100" class="" data-hour="15" id="3pm_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row  4pm">
         <p class="hour">04:00 PM</p>
-        <textarea cols="100" class="text" data-hour="16" id="4pm_text"></textarea>
+        <textarea cols="100" class="" data-hour="16" id="4pm_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
       <div class="row  5pm">
         <p class="hour">05:00 PM</p>
-        <textarea cols="100" class="text" data-hour="17" id="5pm_text"></textarea>
+        <textarea cols="100" class="" data-hour="17" id="5pm_text"></textarea>
         <button type="submit" class="saveBtn btn">Save</button>
       </div>
     </div>
@@ -90,39 +90,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
       integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
       crossorigin="anonymous"></script>
-    <script>
-      let current_hour = moment().hour()
-      let current_day = moment().format("dddd MMMM Do")
-      let text_color = document.querySelectorAll('textarea')
-      let saved_notes = JSON.parse(localStorage.getItem('saved_notes')) || []
-
-      saved_notes.forEach(elem => {
-        document.getElementById(elem.id).value = elem.text
-      });
-
-      text_color.forEach(elem => {
-        if(parseInt(elem.dataset.hour) > parseInt(current_hour)){
-          elem.classList.add('future') 
-        }else if(parseInt(elem.dataset.hour) < parseInt(current_hour)){
-          elem.classList.add('past') 
-        }else{
-          elem.classList.add('present') 
-        }
-      })
-
-      document.getElementById('currentDay').textContent = current_day
-
-      document.addEventListener('click', event => {
-        if(event.target.classList.contains('saveBtn')) {
-          let note = {
-              id:  event.target.previousElementSibling.id,
-              text: event.target.previousElementSibling.value
-          }
-          saved_notes.push(note)
-          localStorage.setItem('saved_notes', JSON.stringify(saved_notes))
-        }
-      })
-
-    </script>
+    <script src="./assets/javascript/app.js"></script>
   </body>
 </html>
