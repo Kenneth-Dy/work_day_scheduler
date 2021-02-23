@@ -1,1 +1,6 @@
-# work_day_scheduler
+# Work Day Scheduler
+
+
+
+
+[./assets/images/example.png]
